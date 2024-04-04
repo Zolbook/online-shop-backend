@@ -1,0 +1,37 @@
+name: CI Workflow
+
+# Defines when the action will run. 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Jobs to run
+jobs:
+  build-and-test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Sets up a Node.js environment using the version defined in your .nvmrc file
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Set this to the node version you prefer or dynamically from .nvmrc
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Run your build script
+    - name: Build
+      run: npm run build
+
+    # Run tests
+    - name: Test
+      run: npm test
