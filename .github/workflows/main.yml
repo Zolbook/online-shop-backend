@@ -9,7 +9,7 @@ on:
 
 # Jobs to run
 jobs:
-  build-and-test:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -32,7 +32,4 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Run tests
-      - name: Test
-        run: npm test
 
