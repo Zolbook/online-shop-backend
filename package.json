@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run buid && node dist/server.js ",
+    "start": "npm run build && node dist/server.js ",
     "build": "tsc",
     "dev": "nodemon"
   },
